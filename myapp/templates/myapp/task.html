@@ -1,0 +1,44 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<!-- Задача 1: Фильтрация студентов -->
+<h1>Задача 1: Фильтрация студентов</h1>
+<form method="post" action="{% url 'task' %}">
+    {% csrf_token %}
+    <input type="hidden" name="form_type" value="students">
+    <label for="students">Фамилии студентов:</label>
+    <input type="text" id="students" name="students" required>
+    <br>
+    <label for="scores">Баллы:</label>
+    <input type="text" id="scores" name="scores" required>
+    <br>
+    <button type="submit">Отправить</button>
+</form>
+
+{% if result_students %}
+<h2>Результат (Задача 1):</h2>
+<ul>
+    {% for student in result_students %}
+    <li>{{ student }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<hr>
+
+<!-- Задача 2: Вычисление значения X -->
+<h1>Задача 2: Вычисление значения X</h1>
+<form method="post" action="{% url 'task' %}">
+    {% csrf_token %}
+    <input type="hidden" name="form_type" value="calculate_x">
+    <label for="a">Введите значение A:</label>
+    <input type="text" id="a" name="a" required>
+    <br>
+    <button type="submit">Вычислить</button>
+</form>
+
+{% if result_x is not None %}
+<h2>Результат (Задача 2):</h2>
+<p>При A = {{ a }}, X = {{ result_x }}</p>
+{% endif %}
+{% endblock %}
