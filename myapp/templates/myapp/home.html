@@ -12,8 +12,10 @@
 <!-- Информация о себе -->
 <div>
     <h2>О себе</h2>
-    <img src="{{ 'myapp/images/my_photo.jpg' }}" alt="Мое фото" width="150">
-    <p><strong>ФИО:</strong> {{ my_data.name }}</p>
+    <a href="https://www.behance.net/zelenkovaalex" target="_self">
+        <img src="{% static 'myapp/images/my_data.jpg' %}" alt="Мое фото" width="150">
+    </a> <br> <br>
+    <a href="https://www.behance.net/zelenkovaalex" target="_self"><strong>ФИО:</strong> {{ my_data.name }}</a>
     <p><strong>Электронная почта:</strong> {{ my_data.email }}</p>
     <p><strong>Телефон:</strong> {{ my_data.phone }}</p>
 </div>
@@ -28,7 +30,7 @@
 <!-- Информация о руководителе -->
 <div>
     <h2>Руководитель программы</h2>
-    <img src="{{ 'myapp/images/my_photo.jpg' }}" alt="Фото руководителя" width="150">
+    <img src="{% static 'myapp/images/supervisor_data.jpg' %}" alt="Фото руководителя" width="150">
     <p><strong>ФИО:</strong> {{ supervisor_data.name }}</p>
     <p><strong>Электронная почта:</strong> {{ supervisor_data.email }}</p>
 </div>
@@ -36,7 +38,7 @@
 <!-- Информация о менеджере -->
 <div>
     <h2>Менеджер программы</h2>
-    <img src="{{ 'myapp/images/my_photo.jpg' }}" alt="Фото менеджера" width="150">
+    <img src="{% static 'myapp/images/manager_data.jpg' %}" alt="Фото менеджера" width="150">
     <p><strong>ФИО:</strong> {{ manager_data.name }}</p>
     <p><strong>Электронная почта:</strong> {{ manager_data.email }}</p>
 </div>
@@ -46,7 +48,7 @@
 {% for classmate in classmates_data %}
 <div>
     <h2>{{ classmate.name }}</h2>
-    <img src="{{ 'myapp/images/my_photo.jpg' }}" alt="Фото сокурсника" width="150">
+    <img src="{% static 'myapp/images/classmate.jpg' %}" alt="Фото сокурсника" width="150">
     <p><strong>Электронная почта:</strong> {{ classmate.email }}</p>
     <p><strong>Телефон:</strong> {{ classmate.phone }}</p>
 </div>
